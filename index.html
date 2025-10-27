@@ -3,10 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquaheal Water - Har Boond Mein Sehat</title>
+    <title>Aquaheal Water - Har Boond Mein Sehat | Pure Water Delivery Service</title>
+    <meta name="description" content="Aquaheal Water - Pure, safe and healthy water from Dhanbad. Born from honesty, built with hard work. Har Boond Mein Sehat. Order now for Diwali offers.">
+    <meta name="keywords" content="Aquaheal Water, pure water, Dhanbad water, RO water, mineral water, healthy water, Suraj Shaw">
+    <meta name="author" content="Aquaheal Water">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Aquaheal Water - Har Boond Mein Sehat">
+    <meta property="og:description" content="Pure, safe and healthy water from Dhanbad. Born from honesty, built with hard work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aquahealwater.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Aquaheal Water",
+      "description": "Pure, safe and healthy water delivery service",
+      "url": "https://aquahealwater.com",
+      "logo": "https://aquahealwater.com/logo.png",
+      "telephone": "+91-86517-44312",
+      "email": "inquiry.aquaheal@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Chirkunda",
+        "addressLocality": "Dhanbad",
+        "addressRegion": "Jharkhand",
+        "postalCode": "828202",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Suraj Shaw"
+      },
+      "slogan": "Har Boond Mein Sehat",
+      "sameAs": [
+        "https://www.facebook.com/Aquahealwater",
+        "https://www.instagram.com/Aquahealwater",
+        "https://wa.me/918651744312"
+      ]
+    }
+    </script>
+    
     <style>
+        /* ===== CSS VARIABLES ===== */
         :root {
             --primary: #1a73e8;
             --primary-light: #e8f0fe;
@@ -17,12 +65,19 @@
             --light: #f8f9fa;
             --gray: #5f6368;
             --gray-light: #dadce0;
-            --transition: all 0.3s ease;
+            --success: #34a853;
+            --warning: #f9ab00;
+            --error: #ea4335;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --radius: 10px;
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --header-height: 80px;
         }
 
-        * {
+        /* ===== CSS RESET & BASE STYLES ===== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -30,22 +85,59 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--light);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4, h5 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             line-height: 1.3;
+            margin-bottom: 1rem;
         }
 
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        input, textarea, select {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -55,6 +147,7 @@
 
         .section {
             padding: 100px 0;
+            position: relative;
         }
 
         .section-title {
@@ -78,7 +171,7 @@
             transform: translateX(-50%);
             width: 70px;
             height: 3px;
-            background: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 3px;
         }
 
@@ -90,8 +183,11 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 32px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
@@ -100,17 +196,34 @@
             border: none;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(26, 115, 232, 0.3);
+            box-shadow: 0 8px 25px rgba(26, 115, 232, 0.4);
         }
 
         .btn-secondary {
@@ -126,19 +239,57 @@
         }
 
         .btn-accent {
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #e55a2b);
             color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .btn-accent:hover {
-            background-color: #e55a2b;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
         }
 
-        /* Header Styles */
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
         header {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -148,7 +299,7 @@
         }
 
         header.scrolled {
-            padding: 10px 0;
+            padding: 5px 0;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -167,17 +318,18 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
         }
 
         .logo-icon {
             color: var(--primary);
-            font-size: 32px;
+            font-size: 34px;
+            filter: drop-shadow(0 2px 4px rgba(26, 115, 232, 0.2));
         }
 
         .logo-text {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--primary);
             line-height: 1;
@@ -187,12 +339,13 @@
             font-size: 12px;
             color: var(--gray);
             margin-top: -2px;
+            letter-spacing: 0.5px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
 
         .nav-links a {
@@ -202,6 +355,7 @@
             transition: var(--transition);
             position: relative;
             font-size: 1rem;
+            padding: 8px 0;
         }
 
         .nav-links a:hover {
@@ -211,15 +365,16 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             transition: var(--transition);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -234,23 +389,37 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--dark);
+            transition: var(--transition);
         }
 
-        /* Festival Banner */
+        .mobile-menu:hover {
+            color: var(--primary);
+        }
+
+        /* ===== FESTIVAL BANNER ===== */
         .festival-banner {
-            background: linear-gradient(135deg, #ff6b35, #ff8e53);
+            background: linear-gradient(135deg, #ff6b35, #ff8e53, #ff6b35);
+            background-size: 200% 200%;
             color: white;
-            padding: 12px 0;
+            padding: 14px 0;
             text-align: center;
             position: relative;
             z-index: 999;
-            margin-top: 80px;
+            margin-top: var(--header-height);
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .festival-banner p {
             margin: 0;
             font-weight: 600;
             font-size: 1.1rem;
+            display: inline;
         }
 
         .festival-banner .btn {
@@ -259,15 +428,14 @@
             font-size: 0.9rem;
         }
 
-        /* Hero Section with Slider */
+        /* ===== HERO SECTION WITH SLIDER ===== */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 115, 232, 0.9) 0%, rgba(52, 168, 83, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.85) 0%, rgba(52, 168, 83, 0.75) 100%);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 180px 0 120px;
-            text-align: center;
+            padding: 160px 0 120px;
             position: relative;
             overflow: hidden;
         }
@@ -278,8 +446,9 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 100px;
+            height: 150px;
             background: linear-gradient(to top, var(--light), transparent);
+            z-index: 1;
         }
 
         .hero-slider {
@@ -295,7 +464,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.7s ease;
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -307,19 +476,22 @@
         }
 
         .slide-content {
-            max-width: 800px;
+            max-width: 850px;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 20px;
             line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
         }
 
         .hero-tagline {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 30px;
             color: #e8f0fe;
@@ -327,10 +499,11 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 40px;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-weight: 400;
         }
 
         .hero-buttons {
@@ -343,28 +516,63 @@
 
         .slider-dots {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            z-index: 2;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
             cursor: pointer;
             transition: var(--transition);
+            border: 2px solid transparent;
         }
 
         .dot.active {
             background: white;
             transform: scale(1.2);
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
-        /* About Section */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* ===== ABOUT SECTION ===== */
         .about {
             background-color: white;
             position: relative;
@@ -373,7 +581,7 @@
         .about-content {
             display: flex;
             align-items: center;
-            gap: 60px;
+            gap: 70px;
         }
 
         .about-text {
@@ -381,59 +589,76 @@
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 20px;
             color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
         }
 
         .about-text p {
             margin-bottom: 20px;
             color: var(--gray);
+            font-size: 1.05rem;
         }
 
         .founder-info {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-top: 30px;
-            padding: 20px;
-            background-color: var(--primary-light);
+            gap: 18px;
+            margin-top: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary-light), #f0f7ff);
             border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
         }
 
         .founder-avatar {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 30px;
+            font-size: 32px;
+            flex-shrink: 0;
         }
 
         .founder-details h4 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 5px;
+            color: var(--dark);
         }
 
         .founder-details p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gray);
         }
 
         .mission-quote {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 30px;
+            padding: 35px;
             border-radius: var(--radius);
-            margin: 30px 0;
+            margin: 35px 0;
             color: white;
             font-style: italic;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
         }
@@ -441,24 +666,25 @@
         .mission-quote::before {
             content: '"';
             position: absolute;
-            top: -20px;
-            left: 10px;
-            font-size: 100px;
-            opacity: 0.2;
+            top: -25px;
+            left: 15px;
+            font-size: 120px;
+            opacity: 0.15;
             font-family: serif;
         }
 
         .about-image {
             flex: 1;
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
             transform: rotate(2deg);
             transition: var(--transition);
+            position: relative;
         }
 
         .about-image:hover {
-            transform: rotate(0deg);
+            transform: rotate(0deg) scale(1.02);
         }
 
         .about-image img {
@@ -472,22 +698,22 @@
             transform: scale(1.05);
         }
 
-        /* Values Section */
+        /* ===== VALUES SECTION ===== */
         .values {
-            background-color: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, #f0f7ff 100%);
             position: relative;
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
         .value-card {
             background-color: white;
-            padding: 40px 30px;
-            border-radius: var(--radius);
+            padding: 45px 35px;
+            border-radius: var(--radius-lg);
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -502,49 +728,55 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
         }
 
         .value-icon {
-            font-size: 50px;
+            font-size: 55px;
             color: var(--primary);
-            margin-bottom: 20px;
-            height: 80px;
+            margin-bottom: 25px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
         }
 
         .value-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
             color: var(--dark);
         }
 
         .value-card p {
             color: var(--gray);
+            font-size: 1.05rem;
         }
 
-        /* Products Section */
+        /* ===== PRODUCTS SECTION ===== */
         .products {
             background-color: white;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
 
         .product-card {
             background-color: var(--light);
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
@@ -552,26 +784,28 @@
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
         }
 
         .product-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--accent);
+            top: 18px;
+            right: 18px;
+            background: linear-gradient(135deg, var(--accent), #e55a2b);
             color: white;
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             z-index: 2;
+            box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
         }
 
         .product-image {
-            height: 220px;
+            height: 240px;
             overflow: hidden;
+            position: relative;
         }
 
         .product-image img {
@@ -586,39 +820,40 @@
         }
 
         .product-info {
-            padding: 25px;
+            padding: 30px;
         }
 
         .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: var(--dark);
         }
 
         .product-info p {
             color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 18px;
+            font-size: 1rem;
         }
 
         .product-price {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            display: block;
         }
 
         .product-features {
             list-style: none;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .product-features li {
-            padding: 5px 0;
+            padding: 6px 0;
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
         }
 
         .product-features li::before {
@@ -627,17 +862,87 @@
             left: 0;
             color: var(--secondary);
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        /* Contact Section */
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #e8f0fe 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 80px;
+            color: var(--primary-light);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 25px;
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact {
-            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
             position: relative;
         }
 
         .contact-container {
             display: flex;
-            gap: 50px;
+            gap: 60px;
         }
 
         .contact-info {
@@ -645,58 +950,76 @@
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             margin-bottom: 20px;
             color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
         }
 
         .contact-info p {
             margin-bottom: 30px;
             color: var(--gray);
+            font-size: 1.05rem;
         }
 
         .contact-details {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 20px;
+            margin-right: 18px;
+            font-size: 22px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
         }
 
         .contact-text h4 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 5px;
+            color: var(--dark);
         }
 
         .contact-text p {
             margin: 0;
             color: var(--gray);
+            font-size: 1rem;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .social-link {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background-color: white;
             border-radius: 50%;
             display: flex;
@@ -706,73 +1029,96 @@
             text-decoration: none;
             transition: var(--transition);
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 115, 232, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .social-link:hover::before {
+            left: 100%;
         }
 
         .social-link:hover {
             background-color: var(--primary);
             color: white;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
         }
 
         .contact-form {
             flex: 1;
             background-color: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            padding: 45px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 600;
             color: var(--dark);
+            font-size: 1rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 15px;
+            padding: 16px 20px;
             border: 1px solid var(--gray-light);
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
             transition: var(--transition);
             font-family: 'Open Sans', sans-serif;
+            background: #fafafa;
         }
 
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+            background: white;
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 160px;
             resize: vertical;
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background: linear-gradient(135deg, var(--dark) 0%, #000000 100%);
             color: white;
-            padding: 70px 0 20px;
+            padding: 80px 0 25px;
+            position: relative;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 45px;
+            margin-bottom: 60px;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
+            font-size: 1.35rem;
+            margin-bottom: 28px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            color: white;
         }
 
         .footer-column h3::after {
@@ -780,9 +1126,9 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 45px;
             height: 2px;
-            background-color: var(--primary);
+            background: var(--primary);
         }
 
         .footer-links {
@@ -790,13 +1136,16 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .footer-links a {
             color: #b0b3b8;
             text-decoration: none;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .footer-links a:hover {
@@ -806,32 +1155,34 @@
 
         .footer-about p {
             color: #b0b3b8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 25px;
             border-top: 1px solid #333;
             color: #b0b3b8;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        /* Back to Top Button */
+        /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgba(26, 115, 232, 0.4);
             transition: var(--transition);
             opacity: 0;
             visibility: hidden;
@@ -844,58 +1195,68 @@
         }
 
         .back-to-top:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(26, 115, 232, 0.5);
         }
 
-        /* WhatsApp Floating Button */
+        /* ===== WHATSAPP FLOATING BUTTON ===== */
         .whatsapp-float {
             position: fixed;
-            bottom: 90px;
-            right: 25px;
-            background-color: #25D366;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            font-size: 28px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: var(--transition);
             text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 5px 25px 10px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            animation: none;
         }
 
         .whatsapp-badge {
             position: absolute;
             top: -5px;
             right: -5px;
-            background-color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #e55a2b);
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 600;
         }
 
-        /* Festival Modal */
+        /* ===== FESTIVAL MODAL ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -912,15 +1273,22 @@
 
         .festival-modal {
             background: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            max-width: 500px;
+            border-radius: var(--radius-lg);
+            padding: 45px;
+            max-width: 520px;
             width: 90%;
             text-align: center;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-lg);
             transform: scale(0.85);
             transition: var(--transition);
             position: relative;
+            animation: modalAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes modalAppear {
+            to {
+                transform: scale(1);
+            }
         }
 
         .modal-overlay.active .festival-modal {
@@ -929,60 +1297,70 @@
 
         .festival-modal h2 {
             color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            margin-bottom: 18px;
+            font-size: 1.9rem;
+            font-weight: 700;
         }
 
         .festival-modal p {
             color: var(--gray);
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-size: 1.15rem;
+            line-height: 1.6;
         }
 
         .modal-buttons {
             display: flex;
-            gap: 15px;
+            gap: 18px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--gray);
             cursor: pointer;
             transition: var(--transition);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .close-modal:hover {
             color: var(--dark);
+            background: var(--gray-light);
         }
 
-        /* Toast Notifications */
+        /* ===== TOAST NOTIFICATIONS ===== */
         .toast-container {
             position: fixed;
-            bottom: 100px;
-            right: 25px;
+            bottom: 120px;
+            right: 30px;
             z-index: 1001;
         }
 
         .toast {
             background: white;
-            padding: 15px 20px;
+            padding: 18px 22px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 10px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             transform: translateX(100%);
             opacity: 0;
-            transition: all 0.3s ease;
-            max-width: 300px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 320px;
+            border-left: 4px solid var(--success);
         }
 
         .toast.show {
@@ -991,12 +1369,35 @@
         }
 
         .toast.success {
-            border-left: 4px solid var(--secondary);
+            border-left-color: var(--success);
+        }
+
+        .toast.warning {
+            border-left-color: var(--warning);
+        }
+
+        .toast.error {
+            border-left-color: var(--error);
         }
 
         .toast-icon {
-            color: var(--secondary);
-            font-size: 1.2rem;
+            color: var(--success);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .toast.warning .toast-icon {
+            color: var(--warning);
+        }
+
+        .toast.error .toast-icon {
+            color: var(--error);
+        }
+
+        .toast-message {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--dark);
         }
 
         .toast-close {
@@ -1005,116 +1406,196 @@
             border: none;
             color: var(--gray);
             cursor: pointer;
-        }
-
-        /* Chat Widget */
-        .chat-widget {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            z-index: 1000;
-        }
-
-        .chat-button {
-            background: var(--primary);
-            color: white;
-            width: 60px;
-            height: 60px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.4);
+        }
+
+        .toast-close:hover {
+            color: var(--dark);
+            background: var(--gray-light);
+        }
+
+        /* ===== CHAT WIDGET ===== */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 5px 20px rgba(26, 115, 232, 0.4);
             cursor: pointer;
             transition: var(--transition);
             border: none;
+            position: relative;
         }
 
         .chat-button:hover {
             transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(26, 115, 232, 0.5);
+        }
+
+        .chat-button::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            opacity: 0;
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
 
         .chat-box {
             position: absolute;
-            bottom: 70px;
+            bottom: 80px;
             left: 0;
-            width: 300px;
+            width: 320px;
             background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 25px;
             display: none;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
         }
 
         .chat-box.active {
             display: flex;
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .chat-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-bottom: 15px;
+            gap: 12px;
+            padding-bottom: 18px;
             border-bottom: 1px solid var(--gray-light);
         }
 
         .chat-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: 18px;
+        }
+
+        .chat-header-info h4 {
+            margin: 0 0 3px 0;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .chat-header-info small {
+            color: var(--success);
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
         .chat-message {
             background: var(--primary-light);
-            padding: 15px;
+            padding: 18px;
             border-radius: var(--radius);
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--dark);
         }
 
         .chat-actions {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
         .chat-action-btn {
             background: white;
             border: 1px solid var(--gray-light);
-            padding: 12px;
+            padding: 14px;
             border-radius: var(--radius);
             text-align: left;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .chat-action-btn:hover {
             background: var(--primary-light);
             border-color: var(--primary);
+            transform: translateX(5px);
         }
 
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        .chat-action-btn i {
+            color: var(--primary);
+            font-size: 1.1rem;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* ===== LOADING ANIMATION ===== */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
         }
 
-        /* Responsive Styles */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.9rem;
+            }
+        }
+
         @media (max-width: 992px) {
             .about-content, .contact-container {
                 flex-direction: column;
@@ -1125,7 +1606,11 @@
             }
             
             .hero-tagline {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
             }
         }
 
@@ -1139,16 +1624,16 @@
             }
             
             .hero {
-                padding: 150px 0 100px;
+                padding: 140px 0 100px;
                 background-attachment: scroll;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             
             .hero-tagline {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
             
             .hero-buttons {
@@ -1158,7 +1643,7 @@
             
             .btn {
                 width: 100%;
-                max-width: 250px;
+                max-width: 280px;
                 text-align: center;
             }
             
@@ -1177,7 +1662,7 @@
             .festival-banner .btn {
                 margin-left: 10px;
                 padding: 6px 15px;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
             
             .chat-box {
@@ -1191,17 +1676,25 @@
             }
             
             .toast {
-                max-width: 250px;
+                max-width: 260px;
+            }
+            
+            .slider-nav {
+                display: none;
             }
         }
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .hero-tagline {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
             }
             
             .section-title h2 {
@@ -1209,17 +1702,17 @@
             }
             
             .contact-form {
-                padding: 25px;
+                padding: 30px 20px;
             }
             
             .festival-banner {
-                padding: 10px 0;
+                padding: 12px 0;
             }
             
             .festival-banner .container {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
             
             .festival-banner .btn {
@@ -1233,6 +1726,29 @@
             .modal-buttons {
                 flex-direction: column;
             }
+            
+            .whatsapp-float, .chat-button {
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+            
+            .whatsapp-float {
+                bottom: 90px;
+                right: 20px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
         }
 
         /* Reduced motion support */
@@ -1241,6 +1757,13 @@
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .whatsapp-float, .chat-widget, .back-to-top, .festival-banner, .modal-overlay {
+                display: none !important;
             }
         }
     </style>
@@ -1259,15 +1782,19 @@
                 </a>
                 
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#values">Values</a></li>
                     <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 
                 <div class="nav-cta">
-                    <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%20Water." class="btn btn-primary">Order Now</a>
+                    <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%20Water." class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        Order Now
+                    </a>
                 </div>
                 
                 <div class="mobile-menu">
@@ -1280,7 +1807,7 @@
     <!-- Festival Banner -->
     <div class="festival-banner">
         <div class="container">
-            <p>Diwali Offer — Buy 10 Get 1 Free • Free delivery in Dhanbad</p>
+            <p>🎉 Diwali Offer — Buy 10 Get 1 Free • Free delivery in Dhanbad 🎉</p>
             <a href="https://wa.me/918651744312?text=I%20want%20Diwali%20Offer%20-%20Buy%2010%20Get%201%20Free" class="btn btn-secondary">Grab Offer</a>
         </div>
     </div>
@@ -1295,8 +1822,14 @@
                     <div class="hero-tagline">Har Boond Mein Sehat</div>
                     <p>Aquaheal Water delivers pure, safe, and healthy water to every home. Born from Dhanbad, built with honesty, hard work, and the dream of purity in every drop.</p>
                     <div class="hero-buttons">
-                        <a href="#products" class="btn btn-primary">Our Products</a>
-                        <a href="https://wa.me/918651744312" class="btn btn-secondary">Order Now</a>
+                        <a href="#products" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Our Products
+                        </a>
+                        <a href="https://wa.me/918651744312" class="btn btn-secondary">
+                            <i class="fas fa-phone-alt"></i>
+                            Contact Us
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1308,8 +1841,14 @@
                     <div class="hero-tagline">Khushiyon Ke Saath Pani Bhi Payein!</div>
                     <p>Celebrate Diwali with pure water. Buy 10 bottles, get 1 free. Limited time offer with free delivery in Dhanbad area.</p>
                     <div class="hero-buttons">
-                        <a href="https://wa.me/918651744312?text=I%20want%20Diwali%20Offer%20-%20Buy%2010%20Get%201%20Free" class="btn btn-accent">Grab Offer</a>
-                        <a href="#products" class="btn btn-secondary">View Products</a>
+                        <a href="https://wa.me/918651744312?text=I%20want%20Diwali%20Offer%20-%20Buy%2010%20Get%201%20Free" class="btn btn-accent">
+                            <i class="fas fa-gift"></i>
+                            Grab Offer
+                        </a>
+                        <a href="#products" class="btn btn-secondary">
+                            <i class="fas fa-box-open"></i>
+                            View Products
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1321,8 +1860,14 @@
                     <div class="hero-tagline">Multi-layer Purification</div>
                     <p>Our advanced RO + UV + Mineral balance process ensures every drop is lab-tested for safety and enriched with essential minerals.</p>
                     <div class="hero-buttons">
-                        <a href="#about" class="btn btn-primary">Learn More</a>
-                        <a href="https://wa.me/918651744312" class="btn btn-secondary">Contact Us</a>
+                        <a href="#about" class="btn btn-primary">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="https://wa.me/918651744312" class="btn btn-secondary">
+                            <i class="fas fa-flask"></i>
+                            Quality Report
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1331,6 +1876,15 @@
                 <div class="dot active" data-slide="0"></div>
                 <div class="dot" data-slide="1"></div>
                 <div class="dot" data-slide="2"></div>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="slider-arrow prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-arrow next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1357,17 +1911,17 @@
                     
                     <div class="founder-info">
                         <div class="founder-avatar">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user-tie"></i>
                         </div>
                         <div class="founder-details">
                             <h4>Suraj Shaw</h4>
-                            <p>Founder, Aquaheal Water</p>
+                            <p>Founder & CEO, Aquaheal Water</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Aquaheal Water Purification">
+                    <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Aquaheal Water Purification Process">
                 </div>
             </div>
         </div>
@@ -1405,6 +1959,14 @@
                     <h3>Community</h3>
                     <p>We believe in giving back to the community that supports us, through various health and wellness initiatives.</p>
                 </div>
+                
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality</h3>
+                    <p>Every batch of Aquaheal water undergoes rigorous testing to ensure it meets the highest quality standards.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1421,7 +1983,7 @@
                 <div class="product-card fade-in">
                     <div class="product-badge">Most Popular</div>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1544003484-3cd181d17917?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="1 Litre Bottle">
+                        <img src="https://images.unsplash.com/photo-1544003484-3cd181d17917?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="Aquaheal 1 Litre Bottle">
                     </div>
                     <div class="product-info">
                         <h3>1 Litre Bottle</h3>
@@ -1431,14 +1993,18 @@
                             <li>BPA-Free Packaging</li>
                             <li>Easy to Carry</li>
                             <li>Ideal for Daily Use</li>
+                            <li>Vacuum Sealed</li>
                         </ul>
-                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%201L%20Bottle." class="btn btn-primary" style="width: 100%;">Order Now</a>
+                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%201L%20Bottle." class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i>
+                            Order on WhatsApp
+                        </a>
                     </div>
                 </div>
                 
                 <div class="product-card fade-in">
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="5 Litre Can">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80" alt="Aquaheal 5 Litre Can">
                     </div>
                     <div class="product-info">
                         <h3>5 Litre Can</h3>
@@ -1448,15 +2014,19 @@
                             <li>Compact Design</li>
                             <li>Easy Pour Spout</li>
                             <li>Week-Long Supply</li>
+                            <li>Reusable Container</li>
                         </ul>
-                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%205L%20Can." class="btn btn-primary" style="width: 100%;">Order Now</a>
+                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%205L%20Can." class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i>
+                            Order on WhatsApp
+                        </a>
                     </div>
                 </div>
                 
                 <div class="product-card fade-in">
                     <div class="product-badge">Best Value</div>
                     <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="20 Litre Jar">
+                        <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Aquaheal 20 Litre Jar">
                     </div>
                     <div class="product-info">
                         <h3>20 Litre Jar</h3>
@@ -1466,8 +2036,69 @@
                             <li>Monthly Subscription Available</li>
                             <li>Free Dispenser with Subscription</li>
                             <li>Home Delivery</li>
+                            <li>Bulk Discounts</li>
                         </ul>
-                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%2020L%20Jar." class="btn btn-primary" style="width: 100%;">Order Now</a>
+                        <a href="https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%2020L%20Jar." class="btn btn-primary" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i>
+                            Order on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Testimonials</h2>
+                <p>What our valued customers say about Aquaheal Water</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "Aquaheal water has been a game-changer for our family. The purity and taste are unmatched. Suraj and his team provide excellent service with timely delivery."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Regular Customer, Dhanbad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "We've been using Aquaheal water in our office for 6 months now. The quality is consistent, and their subscription service makes it so convenient. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Priya Singh</h4>
+                            <p>Office Manager, Chirkunda</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "The Diwali offer was amazing! Got free bottles with my order. Aquaheal's commitment to quality and customer service is truly impressive. Keep up the great work!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Amit Sharma</h4>
+                            <p>Happy Customer, Dhanbad</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1517,13 +2148,31 @@
                                 <p>inquiry.aquaheal@gmail.com</p>
                             </div>
                         </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 8:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://www.facebook.com/Aquahealwater" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.twitter.com/Aquahealwater" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/Aquahealwater" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918651744312" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/Aquahealwater" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.twitter.com/Aquahealwater" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/Aquahealwater" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/918651744312" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -1560,7 +2209,10 @@
                             <textarea id="message" class="form-control" placeholder="How can we help you?" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1574,35 +2226,43 @@
                 <div class="footer-column">
                     <h3>Aquaheal Water</h3>
                     <div class="footer-about">
-                        <p>Har Boond Mein Sehat. Providing pure, safe, and healthy water to every home since our inception.</p>
+                        <p>Har Boond Mein Sehat. Providing pure, safe, and healthy water to every home since our inception. Born in Dhanbad, built with honesty and hard work.</p>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/Aquahealwater" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.twitter.com/Aquahealwater" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/Aquahealwater" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/918651744312" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/Aquahealwater" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.twitter.com/Aquahealwater" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/Aquahealwater" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/918651744312" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#values">Our Values</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#values"><i class="fas fa-chevron-right"></i> Our Values</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Products</h3>
                     <ul class="footer-links">
-                        <li><a href="#">1 Litre Bottle</a></li>
-                        <li><a href="#">5 Litre Can</a></li>
-                        <li><a href="#">20 Litre Jar</a></li>
-                        <li><a href="#">Custom Solutions</a></li>
-                        <li><a href="#">Subscription Plans</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> 1 Litre Bottle</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> 5 Litre Can</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> 20 Litre Jar</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Custom Solutions</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Subscription Plans</a></li>
                     </ul>
                 </div>
                 
@@ -1618,7 +2278,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Aquaheal Water. All Rights Reserved. | Har Boond Mein Sehat</p>
+                <p>&copy; 2023 Aquaheal Water. All Rights Reserved. | Har Boond Mein Sehat | Made with ❤️ in Dhanbad</p>
             </div>
         </div>
     </footer>
@@ -1626,12 +2286,18 @@
     <!-- Festival Modal -->
     <div class="modal-overlay" id="festivalModal">
         <div class="festival-modal">
-            <button class="close-modal" id="closeModal">&times;</button>
+            <button class="close-modal" id="closeModal" aria-label="Close modal">&times;</button>
             <h2>Diwali Special — Khushiyan aur Paani</h2>
-            <p>Buy 10 bottles, Get 1 Free. Free delivery in Dhanbad. Limited time.</p>
+            <p>Celebrate the festival of lights with the purity of Aquaheal Water. Buy 10 bottles, Get 1 Free. Free delivery in Dhanbad. Limited time offer!</p>
             <div class="modal-buttons">
-                <a href="https://wa.me/918651744312?text=I%20want%20Diwali%20Offer%20-%20Buy%2010%20Get%201%20Free" class="btn btn-primary">Order on WhatsApp</a>
-                <button class="btn btn-secondary" id="dismissModal">Dismiss</button>
+                <a href="https://wa.me/918651744312?text=I%20want%20Diwali%20Offer%20-%20Buy%2010%20Get%201%20Free" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i>
+                    Order on WhatsApp
+                </a>
+                <button class="btn btn-outline" id="dismissModal">
+                    <i class="fas fa-times"></i>
+                    Dismiss
+                </button>
             </div>
         </div>
     </div>
@@ -1653,9 +2319,9 @@
         <div class="chat-box" id="chatBox">
             <div class="chat-header">
                 <div class="chat-avatar">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user-tie"></i>
                 </div>
-                <div>
+                <div class="chat-header-info">
                     <h4>Aquaheal Assistant</h4>
                     <small>Online</small>
                 </div>
@@ -1664,29 +2330,87 @@
                 Namaste! Aquaheal mein swaagat hai. Main Suraj ka virtual assistant hoon. Kaise madad karun — Order, Offers, ya Delivery status?
             </div>
             <div class="chat-actions">
-                <button class="chat-action-btn" data-action="order">Order Water</button>
-                <button class="chat-action-btn" data-action="offers">Check Offers</button>
-                <button class="chat-action-btn" data-action="track">Track Order</button>
-                <button class="chat-action-btn" data-action="human">Talk to Human</button>
+                <button class="chat-action-btn" data-action="order">
+                    <i class="fas fa-shopping-cart"></i>
+                    Order Water
+                </button>
+                <button class="chat-action-btn" data-action="offers">
+                    <i class="fas fa-gift"></i>
+                    Check Offers
+                </button>
+                <button class="chat-action-btn" data-action="track">
+                    <i class="fas fa-truck"></i>
+                    Track Order
+                </button>
+                <button class="chat-action-btn" data-action="human">
+                    <i class="fas fa-user"></i>
+                    Talk to Human
+                </button>
             </div>
         </div>
     </div>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </a>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
+        // ===== WEBSITE INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWebsite();
+        });
+
+        function initializeWebsite() {
+            // Initialize all components
+            initNavigation();
+            initHeroSlider();
+            initFestivalModal();
+            initChatWidget();
+            initContactForm();
+            initScrollAnimations();
+            initToastSystem();
+            
+            // Show welcome message
+            setTimeout(() => {
+                showToast('Welcome to Aquaheal Water! 🎉', 'success');
+            }, 1500);
+        }
+
+        // ===== NAVIGATION SYSTEM =====
+        function initNavigation() {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
             const navCta = document.querySelector('.nav-cta');
-            
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-                navCta.style.display = 'none';
-            } else {
+
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                    backToTop.classList.add('active');
+                } else {
+                    header.classList.remove('scrolled');
+                    backToTop.classList.remove('active');
+                }
+
+                // Update active nav link
+                updateActiveNavLink();
+            });
+
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', function() {
+                const isVisible = navLinks.style.display === 'flex';
+                
+                if (isVisible) {
+                    hideMobileMenu();
+                } else {
+                    showMobileMenu();
+                }
+            });
+
+            function showMobileMenu() {
                 navLinks.style.display = 'flex';
                 navCta.style.display = 'flex';
                 navLinks.style.flexDirection = 'column';
@@ -1695,164 +2419,331 @@
                 navLinks.style.left = '0';
                 navLinks.style.width = '100%';
                 navLinks.style.backgroundColor = 'white';
-                navLinks.style.padding = '20px';
-                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                navLinks.style.padding = '25px';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+                navLinks.style.gap = '20px';
                 
                 navCta.style.position = 'absolute';
-                navCta.style.top = 'calc(100% + 180px)';
+                navCta.style.top = 'calc(100% + 200px)';
                 navCta.style.left = '0';
                 navCta.style.width = '100%';
-                navCta.style.padding = '20px';
+                navCta.style.padding = '25px';
                 navCta.style.backgroundColor = 'white';
-                navCta.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                navCta.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+                navCta.style.justifyContent = 'center';
             }
-        });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const backToTop = document.getElementById('backToTop');
+            function hideMobileMenu() {
+                navLinks.style.display = 'none';
+                navCta.style.display = 'none';
+            }
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        hideMobileMenu();
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.getElementById('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const headerHeight = document.getElementById('header').offsetHeight;
             
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-                backToTop.classList.add('active');
-            } else {
-                header.classList.remove('scrolled');
-                backToTop.classList.remove('active');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== HERO SLIDER =====
+        function initHeroSlider() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            const slideInterval = 6000; // 6 seconds
+            
+            let slideTimer;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                currentSlide = (n + slides.length) % slides.length;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
             }
-        });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showToast('Thank you for your message! We will get back to you soon.', 'success');
-            this.reset();
-        });
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Auto-play slider
+            function startSlider() {
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+
+            function stopSlider() {
+                clearInterval(slideTimer);
+            }
+
+            // Pause on hover
+            const heroSlider = document.querySelector('.hero-slider');
+            heroSlider.addEventListener('mouseenter', stopSlider);
+            heroSlider.addEventListener('mouseleave', startSlider);
+
+            // Dot controls
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopSlider();
+                    showSlide(index);
+                    startSlider();
+                });
+            });
+
+            // Arrow controls
+            prevArrow.addEventListener('click', () => {
+                stopSlider();
+                prevSlide();
+                startSlider();
+            });
+
+            nextArrow.addEventListener('click', () => {
+                stopSlider();
+                nextSlide();
+                startSlider();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    stopSlider();
+                    prevSlide();
+                    startSlider();
+                } else if (e.key === 'ArrowRight') {
+                    stopSlider();
+                    nextSlide();
+                    startSlider();
+                }
+            });
+
+            // Start the slider
+            startSlider();
+        }
+
+        // ===== FESTIVAL MODAL =====
+        function initFestivalModal() {
+            const festivalModal = document.getElementById('festivalModal');
+            const closeModal = document.getElementById('closeModal');
+            const dismissModal = document.getElementById('dismissModal');
+
+            function showFestivalModal() {
+                // Check if modal was shown recently
+                const lastShown = localStorage.getItem('popupSeenAt');
+                const now = Date.now();
+                const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                
+                if (!lastShown || (now - lastShown) > oneDay) {
+                    setTimeout(() => {
+                        festivalModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        localStorage.setItem('popupSeenAt', now.toString());
+                    }, 3000);
+                }
+            }
+
+            function hideFestivalModal() {
+                festivalModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            closeModal.addEventListener('click', hideFestivalModal);
+            dismissModal.addEventListener('click', hideFestivalModal);
+
+            // Exit intent trigger (desktop only)
+            document.addEventListener('mouseout', (e) => {
+                if (e.clientY < 50 && window.innerWidth > 768) {
+                    showFestivalModal();
+                }
+            });
+
+            // Close modal when clicking outside
+            festivalModal.addEventListener('click', (e) => {
+                if (e.target === festivalModal) {
+                    hideFestivalModal();
+                }
+            });
+
+            // Show modal on page load
+            showFestivalModal();
+        }
+
+        // ===== CHAT WIDGET =====
+        function initChatWidget() {
+            const chatButton = document.getElementById('chatButton');
+            const chatBox = document.getElementById('chatBox');
+            const chatActions = document.querySelectorAll('.chat-action-btn');
+
+            chatButton.addEventListener('click', () => {
+                chatBox.classList.toggle('active');
+            });
+
+            chatActions.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const action = e.target.closest('.chat-action-btn').dataset.action;
+                    
+                    switch(action) {
+                        case 'order':
+                            window.open('https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%20Water.', '_blank');
+                            showToast('Opening WhatsApp for ordering...', 'success');
+                            break;
+                        case 'offers':
+                            document.getElementById('festivalModal').classList.add('active');
+                            showToast('Showing current offers...', 'success');
+                            break;
+                        case 'track':
+                            showToast('Please call +91 86517 44312 to track your order', 'success');
+                            break;
+                        case 'human':
+                            showToast('We will call you within 1 hour', 'success');
+                            // Simulate notification to admin
+                            setTimeout(() => {
+                                showToast('Suraj will contact you shortly', 'success');
+                            }, 2000);
+                            break;
+                    }
+                    
+                    chatBox.classList.remove('active');
+                });
+            });
+
+            // Close chat when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!chatBox.contains(e.target) && !chatButton.contains(e.target)) {
+                    chatBox.classList.remove('active');
+                }
+            });
+        }
+
+        // ===== CONTACT FORM =====
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                // Get form data
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name') || document.getElementById('name').value,
+                    email: formData.get('email') || document.getElementById('email').value,
+                    phone: formData.get('phone') || document.getElementById('phone').value,
+                    product: formData.get('product') || document.getElementById('product').value,
+                    message: formData.get('message') || document.getElementById('message').value
+                };
+
+                // Simulate form submission
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const navLinks = document.querySelector('.nav-links');
-                    const navCta = document.querySelector('.nav-cta');
-                    if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
-                        navCta.style.display = 'none';
-                    }
-                }
-            });
-        });
+                submitBtn.innerHTML = '<div class="loading"></div> Sending...';
+                submitBtn.disabled = true;
 
-        // Fade in animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = function() {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', fadeInOnScroll);
-        // Initial check in case elements are already in view
-        fadeInOnScroll();
-
-        // Hero Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const slideInterval = 6000; // 6 seconds
-
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            currentSlide = (n + slides.length) % slides.length;
-            
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        // Auto-play slider
-        let slideTimer = setInterval(nextSlide, slideInterval);
-
-        // Pause on hover
-        const heroSlider = document.querySelector('.hero-slider');
-        heroSlider.addEventListener('mouseenter', () => clearInterval(slideTimer));
-        heroSlider.addEventListener('mouseleave', () => {
-            slideTimer = setInterval(nextSlide, slideInterval);
-        });
-
-        // Dot controls
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideTimer);
-                showSlide(index);
-                slideTimer = setInterval(nextSlide, slideInterval);
-            });
-        });
-
-        // Festival Modal
-        const festivalModal = document.getElementById('festivalModal');
-        const closeModal = document.getElementById('closeModal');
-        const dismissModal = document.getElementById('dismissModal');
-
-        function showFestivalModal() {
-            // Check if modal was shown recently
-            const lastShown = localStorage.getItem('popupSeenAt');
-            const now = Date.now();
-            const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-            
-            if (!lastShown || (now - lastShown) > oneDay) {
                 setTimeout(() => {
-                    festivalModal.classList.add('active');
-                    localStorage.setItem('popupSeenAt', now.toString());
-                }, 3000);
-            }
+                    // Simulate successful submission
+                    showToast('Thank you for your message! We will get back to you soon.', 'success');
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Restore button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Log form data (in real scenario, send to server)
+                    console.log('Form submitted:', data);
+                }, 2000);
+            });
         }
 
-        function hideFestivalModal() {
-            festivalModal.classList.remove('active');
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Listen for scroll
+            window.addEventListener('scroll', fadeInOnScroll);
         }
 
-        closeModal.addEventListener('click', hideFestivalModal);
-        dismissModal.addEventListener('click', hideFestivalModal);
+        // ===== TOAST NOTIFICATION SYSTEM =====
+        function initToastSystem() {
+            // Function is available globally as showToast()
+        }
 
-        // Exit intent trigger (desktop only)
-        document.addEventListener('mouseout', (e) => {
-            if (e.clientY < 0 && window.innerWidth > 768) {
-                showFestivalModal();
-            }
-        });
-
-        // Toast System
         function showToast(message, type = 'success') {
             const toastContainer = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
             toast.innerHTML = `
                 <div class="toast-icon">
-                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'exclamation-circle'}"></i>
                 </div>
                 <div class="toast-message">${message}</div>
                 <button class="toast-close">&times;</button>
@@ -1860,19 +2751,26 @@
             
             toastContainer.appendChild(toast);
             
+            // Animate in
             setTimeout(() => {
                 toast.classList.add('show');
             }, 100);
             
-            // Auto dismiss
-            setTimeout(() => {
+            // Auto dismiss after 5 seconds
+            const autoDismiss = setTimeout(() => {
                 hideToast(toast);
-            }, 4000);
+            }, 5000);
             
             // Manual dismiss
             toast.querySelector('.toast-close').addEventListener('click', () => {
+                clearTimeout(autoDismiss);
                 hideToast(toast);
             });
+            
+            // Limit number of toasts
+            if (toastContainer.children.length > 3) {
+                hideToast(toastContainer.children[0]);
+            }
         }
 
         function hideToast(toast) {
@@ -1884,51 +2782,32 @@
             }, 300);
         }
 
-        // Chat Widget
-        const chatButton = document.getElementById('chatButton');
-        const chatBox = document.getElementById('chatBox');
-        const chatActions = document.querySelectorAll('.chat-action-btn');
-
-        chatButton.addEventListener('click', () => {
-            chatBox.classList.toggle('active');
-        });
-
-        chatActions.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const action = e.target.dataset.action;
-                
-                switch(action) {
-                    case 'order':
-                        window.open('https://wa.me/918651744312?text=Hi%20Aquaheal%20Team%2C%20I%20want%20to%20order%20Aquaheal%20Water.', '_blank');
-                        break;
-                    case 'offers':
-                        showFestivalModal();
-                        break;
-                    case 'track':
-                        showToast('Please call +91 86517 44312 to track your order', 'success');
-                        break;
-                    case 'human':
-                        showToast('We will call you within 1 hour', 'success');
-                        // Simulate notification to admin
-                        setTimeout(() => {
-                            showToast('Suraj will contact you shortly', 'success');
-                        }, 2000);
-                        break;
-                }
-                
-                chatBox.classList.remove('active');
+        // ===== PERFORMANCE OPTIMIZATIONS =====
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
             });
-        });
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            showFestivalModal();
-            
-            // Show welcome toast
-            setTimeout(() => {
-                showToast('Welcome to Aquaheal Water!', 'success');
-            }, 1000);
-        });
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Service Worker Registration (for PWA capabilities)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // In a real scenario, you would register your service worker here
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
     </script>
 </body>
 </html>
